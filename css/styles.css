@@ -147,7 +147,7 @@ body {
 }
 
 .status-indicator.error {
-    background: rgba(234, 67, 53, 0.9);
+    bbackground: rgba(234, 68, 53, 0.479);
 }
 
 @keyframes pulse {
