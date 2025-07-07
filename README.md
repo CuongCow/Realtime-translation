@@ -1,44 +1,71 @@
-# Realtime Speech Translation
+# Realtime Translation App
 
-A real-time speech translation application that converts Vietnamese speech to English text using Azure AI services.
+Ứng dụng dịch giọng nói tiếng Việt sang văn bản tiếng Anh theo thời gian thực, sử dụng Web Speech API và Azure Translation API.
 
-## Features
+## Tính năng
 
-- Real-time speech recognition for Vietnamese using Web Speech API
-- Text translation using Azure Translator service
-- Immediate word-by-word translation as you speak
-- Sentence-level translation for better accuracy
-- Clean, modern UI with microphone status indicator
+- Nhận diện giọng nói tiếng Việt theo thời gian thực
+- Dịch sang tiếng Anh tự động
+- Giao diện người dùng đơn giản, dễ sử dụng
+- Tự động xóa văn bản sau khi dừng nói
+- Giới hạn hiển thị văn bản để dễ đọc
 
-## Technologies Used
+## Hướng dẫn triển khai
+
+### 1. Đẩy code lên GitHub
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
+
+### 2. Triển khai trên Vercel
+
+1. Đăng nhập vào [Vercel](https://vercel.com)
+2. Nhấn "Add New" > "Project"
+3. Chọn repository GitHub của bạn
+4. Cấu hình như sau:
+   - Framework Preset: Other
+   - Root Directory: ./
+   - Build Command: pip install -r requirements.txt
+   - Output Directory: ./
+   - Install Command: pip install -r requirements.txt
+5. Trong phần "Environment Variables", thêm các biến môi trường:
+   - AZURE_SPEECH_KEY: [API key của Azure Speech]
+   - AZURE_SPEECH_REGION: eastus
+   - AZURE_TRANSLATION_KEY: [API key của Azure Translation]
+   - AZURE_TRANSLATION_REGION: eastus
+6. Nhấn "Deploy"
+
+### 3. Thêm Subdomain giaolien.com
+
+1. Đăng nhập vào tài khoản quản lý tên miền giaolien.com
+2. Vào phần quản lý DNS
+3. Thêm bản ghi CNAME mới:
+   - Name: [subdomain bạn muốn, ví dụ: translate]
+   - Value: cname.vercel-dns.com
+   - TTL: 3600
+4. Quay lại Vercel, vào phần cài đặt của dự án
+5. Chọn "Domains"
+6. Thêm domain mới: [subdomain].giaolien.com (ví dụ: translate.giaolien.com)
+7. Làm theo hướng dẫn xác minh domain từ Vercel
+
+## Sử dụng
+
+1. Truy cập ứng dụng tại [subdomain].giaolien.com
+2. Nhấn vào nút microphone để bắt đầu nói
+3. Nói bằng tiếng Việt, văn bản tiếng Anh sẽ hiển thị theo thời gian thực
+4. Nhấn lại nút microphone để dừng
+
+## Yêu cầu
+
+- Azure Speech API key
+- Azure Translation API key
+
+## Công nghệ sử dụng
 
 - Frontend: HTML, CSS, JavaScript
-- Backend: Python with FastAPI
-- Azure AI Services:
-  - Azure Speech Service
-  - Azure Translator
-
-## Setup Instructions
-
-1. Clone the repository
-2. Install the required Python packages:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the application:
-   ```
-   python app.py
-   ```
-4. Open your browser and navigate to: `http://localhost:8000`
-
-## Azure Credentials
-
-The application uses Azure AI services for translation. The credentials are stored in the application code for demonstration purposes, but in a production environment, they should be moved to environment variables or a secure configuration file.
-
-## Browser Compatibility
-
-This application works best in Chrome and Edge browsers that support the Web Speech API.
-
-## License
-
-This project is open source and available for personal and educational use. 
+- Backend: Python với FastAPI
+- API: Azure Cognitive Services (Speech, Translation)
+- Hosting: Vercel 
