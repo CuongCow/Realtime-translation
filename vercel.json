@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "env": {
+    "AZURE_SPEECH_KEY": "2gikNuOitK0c6TKq7NV4ie71K8FY9YAmgpt4nJE7k1DFdJTExHthJQQJ99BGACYeBjFXJ3w3AAAYACOGtrz7",
+    "AZURE_SPEECH_REGION": "eastus",
+    "AZURE_TRANSLATION_KEY": "yXkgYbvgmfJHLvlOWRKWWUgHEAOPS0K833AlsmNQKgwOwu4kQYDJJQQJ99BGACYeBjFXJ3w3AAAbACOGwYDP",
+    "AZURE_TRANSLATION_REGION": "eastus"
+  }
+} 
